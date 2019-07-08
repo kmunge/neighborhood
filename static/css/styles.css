@@ -1,0 +1,54 @@
+.fa-home {
+    font-size: 350%;
+    color: rgb(116, 235, 100);
+}
+.imglogin{
+    text-align: center;
+}
+.neiba{
+    text-align: center;
+
+}
+.profilepic{
+    border-radius: 50%;
+    max-width: 80%;
+    width: 80%;
+    height: 80%;
+    margin-left: 30%;
+}
+.newdata{
+    text-align: center;
+    font-size: 250%;
+    font-family: 'sans serif', cursive;
+}
+.introjumbo{
+    text-align: center;
+    background-color: rgb(116, 235, 100);
+  
+}
+
+.headstyle{
+    font-family: 'sans serif', cursive;
+}
+.imagebk{
+    /* background-repeat:no-repeat;
+    background-size: cover; */
+    background-color: rgb(116, 235, 100);
+}
+.slogan{
+    font-family: 'sans serif', cursive;
+    font-size: 3.5em;
+    text-decoration: underline;
+}
+#borderid{
+    border-width: 3px !important;
+}
+.heading{
+    font-family: 'sans serif', cursive;
+    font-size:20px;
+}
+.contacts{
+    font-family: 'sans serif', cursive;
+    font-size:35px;
+    text-decoration: italic;
+}
