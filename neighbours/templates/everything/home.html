@@ -1,0 +1,99 @@
+{% extends 'everything/base.html' %}
+
+{% block content %}
+    {{block.super}}
+
+{%if user.is_authenticated%}
+    {% if profile %}
+    <div class="container-fluid" style="margin-top:7%">
+        <div class="jumbotron" style="background-color:rgb(126, 235, 112)">
+            <img src="https://cdn.pixabay.com/photo/2017/02/06/11/49/city-2042634__340.png" alt="" style="width: 100%; margin-top: -150px">
+            <h2 class="slogan" style="margin-top: -120px; text-align: center">Latest events, highlights and announcements</h2>
+        </div>
+    </div>
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card border border-dark" id="borderid" style="margin-top:20%">
+                    <div style="margin:5%">
+                        <h1 class="contacts">Contacts</h1>
+                        <h3>Health Department</h3>
+                        <p>Phone Number: 0723476524</p>
+                        <h3>Police Authorities</h3>
+                        <p>Phone Number: 0700555999</p>
+                        <hr>
+                        <h1 class="contacts">Occupancy</h1>
+                        <p>54</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-8" style="margin-top:5%">
+            {% for new in posts%}
+                <div class="col-md-6" style="padding:1%">
+                    
+                    <div class="card border border-info" id="borderid">
+                    <div style="margin:2%">
+                        <br>
+                        <p class="heading">{{new.title}}</p>
+                        <hr>
+                        <p> {{new.post}}</p>
+                        <p style="float:right">{{new.pub_date}}</p>
+                            <p>Posted By:{{new.profile}}</p>
+                    </div>
+                </div>
+            </div>
+                {% empty %}
+                <div class="row">
+                    <h2 class="text-center">There is no Posts yet!</h2>
+                </div>
+            {% endfor %}
+            </div>   
+        </div>
+    </div>
+    </div>
+    {% else %}
+    <div class="container" style="margin-top:10%">
+            <div class="jumbotron introjumbo">
+            <div class="row">
+                <div class="col-md-3">
+                   <img src="https://i.ytimg.com/vi/1GkBeji1YUs/hqdefault.jpg" alt="" style="height:100%"> 
+                </div>
+                <div class="col-md-9">
+                    <h1 class="headstyle">This is your HoodWatch </h1>
+                    <br>
+                    <p>Join your hood and find &amp;learn more about your Hood </p>
+                    <a style="font-size:15px;color: white" class='btn btn-outline-default' href="{%url 'NewProfile'%}" > CREATE PROFILE</a>
+                </div>
+            </div>
+        </div>      
+        </div>  
+{% endif %}
+
+{% else %}
+<div class="container" style="margin-top:10%">
+    <div class="jumbotron introjumbo">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="https://i.ytimg.com/vi/1GkBeji1YUs/hqdefault.jpg" alt="" style="height:100%">
+        </div>
+        <div class="col-md-9">
+            <h1 class="headstyle">Welcome to the Neighbourhood Watch</h1>
+            <br>
+            <p>Watch out who got your back in your hood</p>
+            <p>Access businesses and information alerts within your hood easily!</p>
+            <h4>To get started</h4>
+            <a style="font-size:15px;color: white" class='btn btn-outline-default' href="/accounts/login" >REGISTER/LOGIN</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{%  endif %}
+
+{% endblock %}
