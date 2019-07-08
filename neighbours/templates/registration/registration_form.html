@@ -1,0 +1,46 @@
+{%extends "registration/base.html"%}
+{%load static%}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container">
+
+    <!-- Empty div -->
+    <div class="imglogin" style="padding-top: 10ch;">
+      <img src="https://static.tumblr.com/qcz0dct/U2Wojlaql/logo.png" alt="">
+    </div>
+    <div class="row">
+ 
+    <div style="padding-top:5ch; width: 50%;margin: auto;">
+      {% if form.errors %}
+        <p> Password or Username is incorrect </p>
+      {% endif %}
+      <div class="panel panel-default">
+        <div class="panel-body" style="background-color:rgb(116, 235, 100)">
+            <!--<h3 class="headstyle" style="text-align:center; font-size:300%; text-decoration: underline">Neighbourhood</h3> -->
+
+          <form  action="/accounts/register/" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form layout="inline"%}
+          
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-info" value="Login">
+            </div>
+          </div>
+        </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+            <small class="muted">
+                Already have an account?<a style="font-size:15px;" href="/accounts/login"> Log in</a>
+            </small>
+            <input type="hidden" name="next" value="{{next}}">
+          </div>
+          </form>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
