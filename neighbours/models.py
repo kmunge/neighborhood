@@ -102,8 +102,8 @@ class Posts(models.Model):
     def save_post(self):
         self.save()
 
-    def delete_post(self):
-        Posts.objects.filter().delete()
+    # def delete_post(self):
+    #     Posts.objects.filter().delete()
     
     @classmethod
     def get_posts(cls):
