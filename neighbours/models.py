@@ -94,7 +94,7 @@ class Posts(models.Model):
     title = models.CharField(max_length = 60)
     post = models.TextField(blank= True)
     profile = models.ForeignKey(User,on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(NeighbourHood,on_delete = models.CASCADE,null = True)
+    neighbourhood = models.ForeignKey('NeighbourHood',on_delete = models.CASCADE,null = True)
     status= models.CharField(max_length=50, choices=Status_Choices,default='None')
     pub_date = models.DateField(auto_now_add=True)
     poster_id = models.IntegerField(default=0)
@@ -102,8 +102,8 @@ class Posts(models.Model):
     def save_post(self):
         self.save()
 
-    # def delete_post(self):
-    #     Posts.objects.filter().delete()
+    def delete_post(self):
+        Posts.objects.filter().delete()
     
     @classmethod
     def get_posts(cls):
@@ -121,7 +121,7 @@ class Posts(models.Model):
         return post
 
     class Meta:
-        ordering = ['status']
+        ordering = ['-id']
 
     
     def __str__(self):
