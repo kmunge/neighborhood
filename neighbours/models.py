@@ -90,11 +90,11 @@ class Posts(models.Model):
         ('2','Necessary'),
         ('3','Unessential'),
     )
-    user = models.ForeignKey(Profile, related_name='profile')
+    user = models.ForeignKey(Profile,on_delete = models.CASCADE,related_name='profile')
     title = models.CharField(max_length = 60)
     post = models.TextField(blank= True)
     profile = models.ForeignKey(User,on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey('NeighbourHood',on_delete = models.CASCADE,null = True)
+    neighbourhood = models.ForeignKey(NeighbourHood,on_delete = models.CASCADE,null = True)
     status= models.CharField(max_length=50, choices=Status_Choices,default='None')
     pub_date = models.DateField(auto_now_add=True)
     poster_id = models.IntegerField(default=0)
